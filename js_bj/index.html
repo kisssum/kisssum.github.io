@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Javascript笔记 | Kisssum&#39; Blog</title>
+        <meta name="Description" content=""><meta property="og:title" content="Javascript笔记" />
+<meta property="og:description" content="javascript笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kisssum.github.io/js_bj/" />
+<meta property="article:published_time" content="2020-03-05T10:47:27+08:00" />
+<meta property="article:modified_time" content="2020-04-02T20:46:43+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Javascript笔记"/>
+<meta name="twitter:description" content="javascript笔记"/>
+<meta name="application-name" content="Kisssum">
+<meta name="apple-mobile-web-app-title" content="Kisssum"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://kisssum.github.io/js_bj/" /><link rel="prev" href="https://kisssum.github.io/linux_clash/" /><link rel="next" href="https://kisssum.github.io/sql_mssql/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.2e7125082ec8de83a87adc70253c9c23.css" integrity="md5-LnElCC7I3oOoetxwJTycIw=="><link rel="stylesheet" href="/css/style.min.d46c26676afe1395b68d474706d613c5.css" integrity="md5-1GwmZ2r&#43;E5W2jUdHBtYTxQ=="><link rel="stylesheet" href="/lib/fontawesome-free/all.min.76cb46c10b6c0293433b371bae2414b2.css" integrity="md5-dstGwQtsApNDOzcbriQUsg=="><link rel="stylesheet" href="/lib/animate/animate.min.bc1a6a99c43f5ccc97d2d350bde13f74.css" integrity="md5-vBpqmcQ/XMyX0tNQveE/dA=="><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Javascript笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/kisssum.github.io\/js_bj\/"
+        },"image": {
+                "@type": "ImageObject",
+                "url": "https:\/\/kisssum.github.io\/cover.png",
+                "width":  800 ,
+                "height":  600 
+            },"genre": "posts","keywords": "js","wordcount":  1504 ,
+        "url": "https:\/\/kisssum.github.io\/js_bj\/","datePublished": "2020-03-05T10:47:27+08:00","dateModified": "2020-04-02T20:46:43+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                "@type": "Organization",
+                "name": "xxxx",
+                "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/kisssum.github.io\/logo.png",
+                "width":  127 ,
+                "height":  40 
+                }
+            },"author": {
+                "@type": "Person",
+                "name": "Kisssum"
+            },"description": ""
+    }
+    </script></head>
+    <body><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kisssum&#39; Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Kisssum</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/kisssum" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kisssum&#39; Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Kisssum</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/kisssum" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Javascript笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Kisssum</a></span>&nbsp;
+                    <span class="post-category">收录于<a href="/categories/js/">
+                                <i class="far fa-folder fa-fw"></i>Js
+                            </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2020-03-05>2020-03-05</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>约 1504 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>预计阅读 4 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading/normal.min.svg"
+        data-sizes="auto"
+        data-srcset="https://note.youdao.com/yws/api/personal/file/WEB39d5cf4c3fadc51062dd8898e42fa4c1?method=download&amp;shareKey=38a5f1dc373e1f499457cd2da6aa24ac, https://note.youdao.com/yws/api/personal/file/WEB39d5cf4c3fadc51062dd8898e42fa4c1?method=download&amp;shareKey=38a5f1dc373e1f499457cd2da6aa24ac 1.5x, https://note.youdao.com/yws/api/personal/file/WEB39d5cf4c3fadc51062dd8898e42fa4c1?method=download&amp;shareKey=38a5f1dc373e1f499457cd2da6aa24ac 2x"
+        data-src="https://note.youdao.com/yws/api/personal/file/WEB39d5cf4c3fadc51062dd8898e42fa4c1?method=download&amp;shareKey=38a5f1dc373e1f499457cd2da6aa24ac"
+        alt="https://note.youdao.com/yws/api/personal/file/WEB39d5cf4c3fadc51062dd8898e42fa4c1?method=download&shareKey=38a5f1dc373e1f499457cd2da6aa24ac"
+        title="https://note.youdao.com/yws/api/personal/file/WEB39d5cf4c3fadc51062dd8898e42fa4c1?method=download&shareKey=38a5f1dc373e1f499457cd2da6aa24ac" /></div><div class="details toc" id="toc-static">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#关键字">关键字</a></li>
+    <li><a href="#解构赋值">解构赋值</a></li>
+    <li><a href="#内置对象">内置对象</a>
+      <ul>
+        <li><a href="#math">Math</a></li>
+        <li><a href="#array">Array</a>
+          <ul>
+            <li><a href="#创建">创建</a></li>
+          </ul>
+        </li>
+        <li><a href="#string">String</a></li>
+      </ul>
+    </li>
+    <li><a href="#函数">函数</a></li>
+    <li><a href="#对象">对象</a></li>
+    <li><a href="#map">Map</a>
+      <ul>
+        <li><a href="#创建-1">创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#set">Set</a>
+      <ul>
+        <li><a href="#创建-2">创建</a></li>
+      </ul>
+    </li>
+    <li><a href="#其它">其它</a></li>
+    <li><a href="#输出">输出</a></li>
+    <li><a href="#循环">循环</a></li>
+    <li><a href="#正则">正则</a>
+      <ul>
+        <li><a href="#创建-3">创建</a></li>
+        <li><a href="#判断匹配">判断匹配</a></li>
+        <li><a href="#提取">提取</a></li>
+      </ul>
+    </li>
+    <li><a href="#类">类</a></li>
+    <li><a href="#bom">BOM</a>
+      <ul>
+        <li><a href="#window">window</a></li>
+        <li><a href="#navigator">navigator</a></li>
+        <li><a href="#screen">screen</a></li>
+        <li><a href="#location">location</a></li>
+        <li><a href="#document">document</a></li>
+        <li><a href="#history">history</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>javascript笔记</p>
+<h2 id="关键字">关键字</h2>
+<ul>
+<li><code>let</code>声明块级作用域变量，替代<code>var</code></li>
+<li><code>const</code>声明块级作用域常量</li>
+</ul>
+<h2 id="解构赋值">解构赋值</h2>
+<ul>
+<li><code>let [x,y,z]=[values]</code></li>
+</ul>
+<h2 id="内置对象">内置对象</h2>
+<h3 id="math">Math</h3>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>ceil()</code></td>
+<td align="left">对数进行上舍入</td>
+</tr>
+<tr>
+<td align="left"><code>floor()</code></td>
+<td align="left">对数进行下舍入</td>
+</tr>
+<tr>
+<td align="left"><code>round()</code></td>
+<td align="left">四舍五入</td>
+</tr>
+<tr>
+<td align="left"><code>random()</code></td>
+<td align="left">随机数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="array">Array</h3>
+<h4 id="创建">创建</h4>
+<ul>
+<li><code>var array=new Array(size)</code></li>
+<li><code>var array=new Array(values)</code></li>
+<li><code>var array=[values]</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>slice(index1,index2)</code></td>
+<td align="left">返回元素<code>[index1,index2)</code></td>
+</tr>
+<tr>
+<td align="left"><code>join(separator)</code></td>
+<td align="left">把所有元素合成字符串，元素之间由分隔符号分隔</td>
+</tr>
+<tr>
+<td align="left"><code>unshift(values)</code></td>
+<td align="left">在数组首部添加元素，返回新长度</td>
+</tr>
+<tr>
+<td align="left"><code>shift()</code></td>
+<td align="left">移除数组首元素</td>
+</tr>
+<tr>
+<td align="left"><code>push(values)</code></td>
+<td align="left">在数组尾部添加元素，返回新长度</td>
+</tr>
+<tr>
+<td align="left"><code>pop()</code></td>
+<td align="left">移除数组尾元素</td>
+</tr>
+<tr>
+<td align="left"><code>reverse()</code></td>
+<td align="left">数组反转</td>
+</tr>
+<tr>
+<td align="left"><code>fill(value)</code></td>
+<td align="left">替换所有元素</td>
+</tr>
+<tr>
+<td align="left"><code>splice(index,number,values)</code></td>
+<td align="left">从<code>指定索引</code>开始删除<code>n个元素</code>，可以在删除的位置添加元素</td>
+</tr>
+<tr>
+<td align="left"><code>concat(values)</code></td>
+<td align="left">返回添加元素后的数组</td>
+</tr>
+<tr>
+<td align="left"><code>map(function)</code></td>
+<td align="left">高阶函数，接收一个参数，函数作用于每个元素，返回新数组</td>
+</tr>
+<tr>
+<td align="left"><code>filter(function)</code></td>
+<td align="left">高级函数，接收一个参数，如果函数返回值为<code>false</code>则丢弃该元素，返回新数组</td>
+</tr>
+<tr>
+<td align="left"><code>reduce(function)</code></td>
+<td align="left">高阶函数，接收两个参数，函数依次作用在两个元素上，保留结果作为下一个<code>x</code>，返回结果</td>
+</tr>
+<tr>
+<td align="left"><code>sort(function)</code></td>
+<td align="left">高阶函数，接收两个参数，函数返回负数不排序，返回正数排序</td>
+</tr>
+<tr>
+<td align="left"><code>every(function)</code></td>
+<td align="left">高阶函数，判断所有元素是否满足条件，返回逻辑值</td>
+</tr>
+<tr>
+<td align="left"><code>find(function)</code></td>
+<td align="left">高阶函数，查找符合条件的第一个元素并返回该元素</td>
+</tr>
+<tr>
+<td align="left"><code>findIndex(function)</code></td>
+<td align="left">高阶函数，查找符合条件的第一个元素并返回该元素索引</td>
+</tr>
+</tbody>
+</table>
+<h3 id="string">String</h3>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>charAt(index)</code></td>
+<td align="left">返回<code>指定索引</code>位置的字符</td>
+</tr>
+<tr>
+<td align="left"><code>indexOf(searchvalue,fromindex)</code></td>
+<td align="left">返回<code>指定字符串</code>首次出现在字符串中的<code>索引</code></td>
+</tr>
+<tr>
+<td align="left"><code>substring(index1,index2)</code></td>
+<td align="left">返回字符串<code>[index1,index2)</code></td>
+</tr>
+<tr>
+<td align="left"><code>split(separator)</code></td>
+<td align="left">使用指定分割符<code>分隔字符串</code>并<code>返回数组</code></td>
+</tr>
+<tr>
+<td align="left"><code>toLowerCase()</code></td>
+<td align="left">返回字符串的小写形式</td>
+</tr>
+<tr>
+<td align="left"><code>toUpperCase()</code></td>
+<td align="left">返回字符串的大写形式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="函数">函数</h2>
+<p><code>arguments</code>类似<code>Array</code>，永远指向函数的所有参数。<br>
+<code>...rest</code>写在参数最后，把多余的参数以<code>Array</code>形式给<code>rest</code>变量</p>
+<ul>
+<li>函数:<code>function fn(){}</code></li>
+<li>匿名函数：<code>let fn=function(){}</code></li>
+<li>Lambda：<code>let fn=()=&gt;{}</code></li>
+<li>高级函数：<code>function fn(x,y,f){return f(x)+f(y)}</code></li>
+</ul>
+<h2 id="对象">对象</h2>
+<ul>
+<li>例：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">let</span> <span class="nx">stu</span><span class="o">=</span><span class="p">{</span>
+    <span class="nx">id</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span>
+    <span class="nx">brith</span><span class="o">:</span><span class="mi">2000</span><span class="p">,</span>
+    <span class="nx">skill</span><span class="o">:</span><span class="kc">null</span><span class="p">,</span>
+    <span class="nx">ago</span><span class="o">:</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getFullYear</span><span class="p">())</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">brith</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>添加属性<br>
+<code>stu.ago=20</code></li>
+<li>删除属性<br>
+<code>delete stu.ago</code></li>
+<li>判断对象是否存在属性<br>
+<code>'ago' in stu</code></li>
+</ul>
+<h2 id="map">Map</h2>
+<h3 id="创建-1">创建</h3>
+<ul>
+<li><code>var m=new Map()</code></li>
+<li><code>var m=new Map([[key1,value1],[key2,value2],...])</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>set(key,value)</code></td>
+<td align="left"><code>添加</code>键或<code>修改</code>键值</td>
+</tr>
+<tr>
+<td align="left"><code>get(key)</code></td>
+<td align="left">返回键值</td>
+</tr>
+<tr>
+<td align="left"><code>has(key)</code></td>
+<td align="left">是否存在键</td>
+</tr>
+<tr>
+<td align="left"><code>delete(key)</code></td>
+<td align="left">删除键</td>
+</tr>
+</tbody>
+</table>
+<h2 id="set">Set</h2>
+<h3 id="创建-2">创建</h3>
+<ul>
+<li><code>var s=new Set()</code></li>
+<li><code>var s=new Set([values])</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>add(key)</code></td>
+<td align="left">添加键</td>
+</tr>
+<tr>
+<td align="left"><code>has(key)</code></td>
+<td align="left">是否存在键</td>
+</tr>
+<tr>
+<td align="left"><code>delete(key)</code></td>
+<td align="left">删除键</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其它">其它</h2>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>typeof(value)</code></td>
+<td align="left">返回该值的数据类型</td>
+</tr>
+<tr>
+<td align="left"><code>parseInt(value)</code></td>
+<td align="left">返回该值的整型</td>
+</tr>
+<tr>
+<td align="left"><code>parseFloat(value)</code></td>
+<td align="left">返回该值的浮点型</td>
+</tr>
+</tbody>
+</table>
+<h2 id="输出">输出</h2>
+<ul>
+<li><code>document.write()</code></li>
+<li><code>console.log()</code></li>
+</ul>
+<h2 id="循环">循环</h2>
+<ul>
+<li>计数循环：<code>for(初值;条件;自增){}</code></li>
+<li>条件循环：<code>while(条件){}</code></li>
+<li>遍历下标：<code>for(let i in list){}</code></li>
+<li>遍历值：<code>for(let i of list){}</code></li>
+</ul>
+<h2 id="正则">正则</h2>
+<h3 id="创建-3">创建</h3>
+<ul>
+<li><code>let re=/^\d{3}\w$/</code></li>
+<li><code>let re=new RegExp('\d{3}\w$')</code></li>
+</ul>
+<h3 id="判断匹配">判断匹配</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;123w&#39;</span><span class="p">)</span> <span class="c1">// true
+</span><span class="c1"></span><span class="nx">re</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;s23w&#39;</span><span class="p">)</span> <span class="c1">// false
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="提取">提取</h3>
+<p>re.exec(str) 提取匹配的字符串，返回第一个元素是正则表达式匹配到的整个字符串，其余是匹配到的字串</p>
+<h2 id="类">类</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">class</span> <span class="nx">person</span><span class="p">{</span>
+  <span class="c1">// 构造函数
+</span><span class="c1"></span>  <span class="nx">constructor</span><span class="p">(){}</span>
+  <span class="kd">function</span> <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="bom">BOM</h2>
+<h3 id="window">window</h3>
+<table>
+<thead>
+<tr>
+<th align="left">属性/方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>innerWidth</code></td>
+<td align="left">获取浏览器内部宽度</td>
+</tr>
+<tr>
+<td align="left"><code>innerHeight</code></td>
+<td align="left">获取浏览器内部高度</td>
+</tr>
+<tr>
+<td align="left"><code>outerWidth</code></td>
+<td align="left">获取浏览器外部宽度</td>
+</tr>
+<tr>
+<td align="left"><code>outerHeight</code></td>
+<td align="left">获取浏览器外部高度</td>
+</tr>
+<tr>
+<td align="left"><code>prompt(massage)</code></td>
+<td align="left">输入框(消息+输入框+取消按钮+确认按钮)</td>
+</tr>
+<tr>
+<td align="left"><code>alert(massage)</code></td>
+<td align="left">警示框(消息+确认按钮)</td>
+</tr>
+<tr>
+<td align="left"><code>confirm(massage)</code></td>
+<td align="left">对话框(消息+取消按钮+确认按钮)</td>
+</tr>
+<tr>
+<td align="left"><code>close()</code></td>
+<td align="left">关闭浏览器窗口</td>
+</tr>
+<tr>
+<td align="left"><code>open(&quot;url&quot;,&quot;窗口名称&quot;,&quot;窗口特征&quot;)</code></td>
+<td align="left">打开新的窗口</td>
+</tr>
+<tr>
+<td align="left"><code>setTimeout(函数,毫秒)</code></td>
+<td align="left">几毫秒后执行一次函数</td>
+</tr>
+<tr>
+<td align="left"><code>setInterval(函数,毫秒)</code></td>
+<td align="left">每过几毫秒执行一次函数</td>
+</tr>
+<tr>
+<td align="left"><code>clearTimeout(返回的id)</code></td>
+<td align="left">清空</td>
+</tr>
+<tr>
+<td align="left"><code>clearInterval(返回的id)</code></td>
+<td align="left">清空</td>
+</tr>
+</tbody>
+</table>
+<h3 id="navigator">navigator</h3>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>appName</code></td>
+<td align="left">获取浏览器名称</td>
+</tr>
+<tr>
+<td align="left"><code>appVersion</code></td>
+<td align="left">获取浏览器版本</td>
+</tr>
+<tr>
+<td align="left"><code>language</code></td>
+<td align="left">获取浏览器设置语言</td>
+</tr>
+<tr>
+<td align="left"><code>platform</code></td>
+<td align="left">获取操作系统类型</td>
+</tr>
+<tr>
+<td align="left"><code>userAgent</code></td>
+<td align="left">获取浏览器设定的<code>user-Agent</code>字符串</td>
+</tr>
+</tbody>
+</table>
+<h3 id="screen">screen</h3>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>width</code></td>
+<td align="left">获取屏幕宽度</td>
+</tr>
+<tr>
+<td align="left"><code>height</code></td>
+<td align="left">获取屏幕高度</td>
+</tr>
+<tr>
+<td align="left"><code>colorDepth</code></td>
+<td align="left">获取屏幕颜色位数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="location">location</h3>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>href</code></td>
+<td align="left">获取URL</td>
+</tr>
+<tr>
+<td align="left"><code>host</code></td>
+<td align="left">获取站点主页URL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="document">document</h3>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>title</code></td>
+<td align="left">修改网页标题</td>
+</tr>
+<tr>
+<td align="left"><code>cookie</code></td>
+<td align="left">获取<code>cookie</code></td>
+</tr>
+<tr>
+<td align="left"><code>getElementById()</code></td>
+<td align="left">根据ID获取DOM节点</td>
+</tr>
+<tr>
+<td align="left"><code>getElementByName()</code></td>
+<td align="left">根据Name获取DOM节点</td>
+</tr>
+<tr>
+<td align="left"><code>getElementsByTagName()</code></td>
+<td align="left">根据Tag获取DOM节点</td>
+</tr>
+<tr>
+<td align="left"><code>getElementsByClassName()</code></td>
+<td align="left">根据Class获取DOM节点</td>
+</tr>
+<tr>
+<td align="left"><code>createElement</code></td>
+<td align="left">创建节点</td>
+</tr>
+<tr>
+<td align="left"><code>appendChild()</code></td>
+<td align="left">插入节点</td>
+</tr>
+<tr>
+<td align="left"><code>insertBefore(插入的节点, 指定节点)</code></td>
+<td align="left">插入到指定节点前</td>
+</tr>
+<tr>
+<td align="left"><code>children</code></td>
+<td align="left">返回所有节点</td>
+</tr>
+</tbody>
+</table>
+<h3 id="history">history</h3>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>back()</code></td>
+<td align="left">返回前一个url</td>
+</tr>
+<tr>
+<td align="left"><code>forward()</code></td>
+<td align="left">返回后一个url</td>
+</tr>
+<tr>
+<td align="left"><code>go()</code></td>
+<td align="left">返回某个具体的url</td>
+</tr>
+</tbody>
+</table></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>本文于 2020-04-02 更新</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://kisssum.github.io/js_bj/" data-title="Javascript笔记" data-hashtags="js"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://kisssum.github.io/js_bj/" data-hashtag="js"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://kisssum.github.io/js_bj/" data-title="Javascript笔记" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://kisssum.github.io/js_bj/" data-title="Javascript笔记"><i class="fab fa-line fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://kisssum.github.io/js_bj/" data-title="Javascript笔记" data-image="https://note.youdao.com/yws/api/personal/file/WEB39d5cf4c3fadc51062dd8898e42fa4c1?method=download&amp;shareKey=38a5f1dc373e1f499457cd2da6aa24ac" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://kisssum.github.io/js_bj/" data-title="Javascript笔记" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://kisssum.github.io/js_bj/" data-title="Javascript笔记" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://kisssum.github.io/js_bj/" data-title="Javascript笔记"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/js/">js</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/linux_clash/" class="prev" rel="prev" title="Clash科学上网"><i class="fas fa-angle-left fa-fw"></i>Clash科学上网</a>
+            <a href="/sql_mssql/" class="next" rel="next" title="Mssql笔记">Mssql笔记<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript">
+    window.config = {"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"headerMode":{"desktop":"fixed","mobile":"auto"},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","noResultsFound":"没有找到结果","type":"algolia"}};
+</script><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.closest%2CrequestAnimationFrame%2CCustomEvent%2CPromise%2CObject.entries%2CObject.assign%2CObject.values%2Cfetch%2CElement.prototype.after%2CArray.prototype.fill%2CIntersectionObserver%2CArray.from%2CArray.prototype.find%2CMath.sign"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.100efdceabf7a138f3297e437d078f74.js" integrity="md5-EA79zqv3oTjzKX5DfQePdA=="></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.ae7c5011def46b283696baf367586b5d.js" integrity="md5-rnxQEd70ayg2lrrzZ1hrXQ=="></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.f4b3bfb8ca3e7483fb4fd3541527e1bd.js" integrity="md5-9LO/uMo&#43;dIP7T9NUFSfhvQ=="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.0812d0f17b90a4aefd97bb91085ad252.js" integrity="md5-CBLQ8XuQpK79l7uRCFrSUg=="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.af8ab36589315582ccdd82f22e84bffb.js" integrity="md5-r4qzZYkxVYLM3YLyLoS/&#43;w=="></script><script type="text/javascript" src="/lib/sharer/sharer.min.c3c3372b4cf5c56dd4e5a4be8ada86c9.js" integrity="md5-w8M3K0z1xW3U5aS&#43;itqGyQ=="></script><script type="text/javascript" src="/js/theme.min.51bacba29b2063351eed3f225a354ed6.js" integrity="md5-UbrLopsgYzUe7T8iWjVO1g=="></script></body>
+</html>

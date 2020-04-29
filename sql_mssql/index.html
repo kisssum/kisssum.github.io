@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Mssql笔记 | Kisssum&#39; Blog</title>
+        <meta name="Description" content=""><meta property="og:title" content="Mssql笔记" />
+<meta property="og:description" content="Mssql数据库笔记" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kisssum.github.io/sql_mssql/" />
+<meta property="article:published_time" content="2020-03-30T16:07:44+08:00" />
+<meta property="article:modified_time" content="2020-04-29T19:38:44+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mssql笔记"/>
+<meta name="twitter:description" content="Mssql数据库笔记"/>
+<meta name="application-name" content="Kisssum">
+<meta name="apple-mobile-web-app-title" content="Kisssum"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://kisssum.github.io/sql_mssql/" /><link rel="prev" href="https://kisssum.github.io/js_bj/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.2e7125082ec8de83a87adc70253c9c23.css" integrity="md5-LnElCC7I3oOoetxwJTycIw=="><link rel="stylesheet" href="/css/style.min.d46c26676afe1395b68d474706d613c5.css" integrity="md5-1GwmZ2r&#43;E5W2jUdHBtYTxQ=="><link rel="stylesheet" href="/lib/fontawesome-free/all.min.76cb46c10b6c0293433b371bae2414b2.css" integrity="md5-dstGwQtsApNDOzcbriQUsg=="><link rel="stylesheet" href="/lib/animate/animate.min.bc1a6a99c43f5ccc97d2d350bde13f74.css" integrity="md5-vBpqmcQ/XMyX0tNQveE/dA=="><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mssql笔记",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/kisssum.github.io\/sql_mssql\/"
+        },"image": {
+                "@type": "ImageObject",
+                "url": "https:\/\/kisssum.github.io\/cover.png",
+                "width":  800 ,
+                "height":  600 
+            },"genre": "posts","keywords": "sql","wordcount":  1772 ,
+        "url": "https:\/\/kisssum.github.io\/sql_mssql\/","datePublished": "2020-03-30T16:07:44+08:00","dateModified": "2020-04-29T19:38:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+                "@type": "Organization",
+                "name": "xxxx",
+                "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/kisssum.github.io\/logo.png",
+                "width":  127 ,
+                "height":  40 
+                }
+            },"author": {
+                "@type": "Person",
+                "name": "Kisssum"
+            },"description": ""
+    }
+    </script></head>
+    <body><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kisssum&#39; Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Kisssum</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/kisssum" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kisssum&#39; Blog"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Kisssum</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/kisssum" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Mssql笔记</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Kisssum</a></span>&nbsp;
+                    <span class="post-category">收录于<a href="/categories/sql/">
+                                <i class="far fa-folder fa-fw"></i>Sql
+                            </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2020-03-30>2020-03-30</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>约 1772 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>预计阅读 4 分钟&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading/normal.min.svg"
+        data-sizes="auto"
+        data-srcset="https://note.youdao.com/yws/api/personal/file/WEB03b91eaae887cd42cba1bc5f05682843?method=download&amp;shareKey=a1cc0f200d5dc20dbd506443cb3c75a7, https://note.youdao.com/yws/api/personal/file/WEB03b91eaae887cd42cba1bc5f05682843?method=download&amp;shareKey=a1cc0f200d5dc20dbd506443cb3c75a7 1.5x, https://note.youdao.com/yws/api/personal/file/WEB03b91eaae887cd42cba1bc5f05682843?method=download&amp;shareKey=a1cc0f200d5dc20dbd506443cb3c75a7 2x"
+        data-src="https://note.youdao.com/yws/api/personal/file/WEB03b91eaae887cd42cba1bc5f05682843?method=download&amp;shareKey=a1cc0f200d5dc20dbd506443cb3c75a7"
+        alt="https://note.youdao.com/yws/api/personal/file/WEB03b91eaae887cd42cba1bc5f05682843?method=download&shareKey=a1cc0f200d5dc20dbd506443cb3c75a7"
+        title="https://note.youdao.com/yws/api/personal/file/WEB03b91eaae887cd42cba1bc5f05682843?method=download&shareKey=a1cc0f200d5dc20dbd506443cb3c75a7" /></div><div class="details toc" id="toc-static">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据库操作">数据库操作</a></li>
+    <li><a href="#数据表操作">数据表操作</a></li>
+    <li><a href="#select查询">Select查询</a>
+      <ul>
+        <li><a href="#基本语法">基本语法</a></li>
+        <li><a href="#select">select</a></li>
+        <li><a href="#from">from</a></li>
+        <li><a href="#where">where</a></li>
+        <li><a href="#函数">函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#insert插入">Insert插入</a></li>
+    <li><a href="#update修改">Update修改</a></li>
+    <li><a href="#delete删除">Delete删除</a></li>
+    <li><a href="#create创建">Create创建</a></li>
+    <li><a href="#drop移除">Drop移除</a></li>
+    <li><a href="#注释">注释</a></li>
+    <li><a href="#变量">变量</a>
+      <ul>
+        <li><a href="#系统全局变量">系统全局变量</a></li>
+        <li><a href="#局部变量">局部变量</a>
+          <ul>
+            <li><a href="#定义">定义</a></li>
+            <li><a href="#赋值">赋值</a></li>
+            <li><a href="#打印">打印</a></li>
+            <li><a href="#类型转换">类型转换</a></li>
+            <li><a href="#列子">列子</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#流程控制">流程控制</a>
+      <ul>
+        <li><a href="#条件">条件</a></li>
+        <li><a href="#条件判断">条件判断</a></li>
+        <li><a href="#循环">循环</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Mssql数据库笔记</p>
+<h2 id="数据库操作">数据库操作</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 进入数据库
+</span><span class="c1"></span><span class="n">use</span> <span class="o">&lt;</span><span class="err">数据库名</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- 显示数据库列表
+</span><span class="c1"></span><span class="k">show</span> <span class="n">databases</span><span class="p">;</span>
+
+<span class="c1">-- 查看创建数据库的语句
+</span><span class="c1"></span><span class="k">show</span> <span class="k">create</span> <span class="k">database</span> <span class="o">&lt;</span><span class="err">数据库名</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="数据表操作">数据表操作</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 显示数据表列表(必须先进入数据库才可以显示数据表)
+</span><span class="c1"></span><span class="k">show</span> <span class="n">tables</span><span class="p">;</span>
+
+<span class="c1">-- 查看数据表结构
+</span><span class="c1"></span><span class="k">desc</span> <span class="o">&lt;</span><span class="err">数据表名</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- 查看创建表的语句
+</span><span class="c1"></span><span class="k">show</span> <span class="k">create</span> <span class="k">table</span> <span class="o">&lt;</span><span class="err">数据表名</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="select查询">Select查询</h2>
+<h3 id="基本语法">基本语法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">&lt;</span><span class="err">字段</span><span class="o">&gt;</span> <span class="p">[</span> <span class="k">as</span> <span class="o">&lt;</span><span class="err">别名</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="k">from</span> <span class="o">&lt;</span><span class="err">数据表</span><span class="o">&gt;</span>
+<span class="p">[</span> <span class="k">inner</span> <span class="k">join</span> <span class="err">数据表</span><span class="mi">2</span> <span class="k">on</span> <span class="o">&lt;</span><span class="err">连接条件</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="p">[</span> <span class="k">where</span> <span class="o">&lt;</span><span class="err">入口条件</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="p">[</span> <span class="k">group</span> <span class="k">by</span> <span class="o">&lt;</span><span class="err">聚集</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="p">[</span> <span class="k">having</span> <span class="o">&lt;</span><span class="err">出口条件</span><span class="o">&gt;</span> <span class="p">]</span>
+<span class="p">[</span> <span class="k">order</span> <span class="k">by</span> <span class="o">&lt;</span><span class="err">排序</span> <span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="o">&gt;</span> <span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="select">select</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 显示该字段的记录
+</span><span class="c1"></span><span class="k">select</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span>
+
+<span class="c1">-- 只显示头n条记录
+</span><span class="c1"></span><span class="k">select</span> <span class="n">top</span> <span class="n">n</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span>
+
+<span class="c1">-- 字段内容相同的记录只出现一次
+</span><span class="c1"></span><span class="k">select</span> <span class="k">distinct</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span>
+
+<span class="c1">-- 将查询结果存入临时表
+</span><span class="c1"></span><span class="k">select</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span> <span class="k">into</span> <span class="o">#</span><span class="err">临时表名</span>
+
+<span class="c1">-- 新建一个表，并将查询结果存入
+</span><span class="c1"></span><span class="k">select</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span> <span class="k">into</span> <span class="err">新表名</span>
+
+<span class="c1">-- 拼接查询结果
+</span><span class="c1"></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span><span class="err">表</span><span class="mi">1</span><span class="o">&gt;</span>
+<span class="k">union</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span><span class="err">表</span><span class="mi">2</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="from">from</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 别名表
+</span><span class="c1"></span><span class="k">from</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="err">别名</span>
+
+<span class="c1">-- where多表查询
+</span><span class="c1"></span><span class="k">from</span> <span class="o">&lt;</span><span class="err">表</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="err">表</span><span class="mi">2</span><span class="o">&gt;</span> <span class="k">where</span> <span class="err">双表匹配字段</span>
+
+<span class="c1">-- 内连查询
+</span><span class="c1"></span><span class="k">from</span> <span class="o">&lt;</span><span class="err">表</span><span class="mi">1</span><span class="o">&gt;</span> <span class="k">inner</span> <span class="k">join</span> <span class="o">&lt;</span><span class="err">表</span><span class="mi">2</span><span class="o">&gt;</span> <span class="k">on</span> <span class="err">双表匹配字段</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="where">where</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 匹配结果
+</span><span class="c1"></span><span class="k">where</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span> <span class="k">in</span> <span class="p">(</span><span class="k">select</span> <span class="err">语句</span><span class="p">)</span>
+
+<span class="c1">-- 符合全部结果
+</span><span class="c1"></span><span class="k">where</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="k">all</span> <span class="p">(</span><span class="k">select</span> <span class="err">语句</span><span class="p">)</span>
+
+<span class="c1">-- 符合任意一个结果
+</span><span class="c1"></span><span class="k">where</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="k">any</span> <span class="p">(</span><span class="k">select</span> <span class="err">语句</span><span class="p">)</span>
+
+<span class="c1">-- %:匹配多个字符 _:匹配一个字符
+</span><span class="c1"></span><span class="k">where</span> <span class="o">&lt;</span><span class="err">字段列表</span><span class="o">&gt;</span> <span class="k">like</span> <span class="s2">&#34;匹配信息&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="函数">函数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">getdate</span><span class="p">()</span> <span class="err">获取当前日期</span>
+<span class="k">check</span><span class="p">(</span><span class="err">字段名</span> <span class="k">in</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="err">限定</span><span class="p">(</span><span class="err">常用于创建表时设置的字段限定值</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="insert插入">Insert插入</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">insert</span> <span class="k">into</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="k">values</span><span class="p">()</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="o">&lt;</span><span class="err">表名</span><span class="p">(</span><span class="err">字段</span><span class="p">)</span><span class="o">&gt;</span> <span class="k">values</span><span class="p">()</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="n">select查询结果</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="update修改">Update修改</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">update</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="k">set</span> <span class="err">字段</span><span class="mi">1</span><span class="o">=</span><span class="err">新值</span><span class="p">,...</span> <span class="p">[</span> <span class="k">where</span> <span class="o">&lt;</span><span class="err">条件</span><span class="o">&gt;</span> <span class="p">]</span>
+
+<span class="k">update</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="k">set</span> <span class="err">字段</span><span class="mi">1</span><span class="o">=</span><span class="err">新值</span><span class="p">,...</span> <span class="p">[</span> <span class="k">from</span> <span class="err">连接表</span> <span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="delete删除">Delete删除</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">delete</span> <span class="k">from</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="p">[</span> <span class="k">where</span> <span class="o">&lt;</span><span class="err">条件</span><span class="o">&gt;</span> <span class="p">]</span>
+
+<span class="k">delete</span> <span class="k">from</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="p">[</span> <span class="k">from</span> <span class="err">连接表</span> <span class="p">]</span> 
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="create创建">Create创建</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 创建数据库
+</span><span class="c1"></span><span class="k">create</span> <span class="k">database</span> <span class="o">&lt;</span><span class="err">数据库名</span><span class="p">,...</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">-- 创建数据表(创建一个表至少要包含一个字段)
+</span><span class="c1"></span><span class="k">create</span> <span class="k">table</span> <span class="o">&lt;</span><span class="err">数据表名</span><span class="o">&gt;</span> <span class="p">(</span><span class="err">字段</span><span class="mi">1</span> <span class="err">数据类型</span><span class="p">,...);</span>
+
+<span class="c1">-- 创建公用表
+</span><span class="c1"></span><span class="k">with</span> <span class="o">&lt;</span><span class="err">公用表名</span><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="err">字段列表</span><span class="p">)</span> <span class="p">]</span> <span class="k">as</span> <span class="p">(</span><span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span> <span class="err">公用表名</span> <span class="o">&gt;</span>
+
+<span class="c1">-- 创建视图(如果用了排序就要用top才能创建)
+</span><span class="c1"></span><span class="k">create</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="err">列名</span><span class="p">...)</span> <span class="p">]</span> <span class="k">as</span> <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
+
+<span class="c1">-- 创建存储过程(函数,output可将变量值返回)
+</span><span class="c1"></span><span class="k">create</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span>  <span class="p">[</span> <span class="o">@</span><span class="err">变量</span><span class="mi">1</span> <span class="err">数据类型</span><span class="p">,</span><span class="o">@</span><span class="err">变量</span><span class="mi">2</span> <span class="err">数据类型</span> <span class="p">[</span> <span class="k">output</span> <span class="p">],...</span> <span class="p">]</span> <span class="k">as</span> <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
+<span class="k">go</span>
+<span class="c1">-- 调用
+</span><span class="c1"></span><span class="k">exec</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="err">参数</span><span class="o">&gt;</span> <span class="p">[</span> <span class="k">output</span> <span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="drop移除">Drop移除</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 移除数据库
+</span><span class="c1"></span><span class="k">drop</span> <span class="k">database</span> <span class="o">&lt;</span><span class="err">数据库名</span><span class="o">&gt;</span>
+
+<span class="c1">-- 移除表
+</span><span class="c1"></span><span class="k">drop</span> <span class="k">table</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span>
+
+<span class="c1">-- 移除视图
+</span><span class="c1"></span><span class="k">drop</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span>
+
+<span class="c1">-- 移除存储过程
+</span><span class="c1"></span><span class="k">drop</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="注释">注释</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 行注释
+</span><span class="c1"></span>
+<span class="cm">/*
+</span><span class="cm">   块注释
+</span><span class="cm">*/</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="变量">变量</h2>
+<h3 id="系统全局变量">系统全局变量</h3>
+<ul>
+<li>系统全局变量以<code>@@</code>为前缀，用户不能自定义和改值</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">变量名</th>
+<th align="left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>@@SERVERNAME</code></td>
+<td align="left">返回运行 SQL Server 的本地服务器的名称</td>
+</tr>
+<tr>
+<td align="left"><code>@@CURSOR_ROWS</code></td>
+<td align="left">返回连接打开的上一个游标中的当前限定行的数目</td>
+</tr>
+<tr>
+<td align="left"><code>@@ROWCOUNT</code></td>
+<td align="left">返回受上一语句影响的行数</td>
+</tr>
+<tr>
+<td align="left"><code>@@VERSION</code></td>
+<td align="left">返回当前的 SQL Server 安装的版本、处理器体系结构、生成日期和操作系统</td>
+</tr>
+<tr>
+<td align="left"><code>@@ERROR</code></td>
+<td align="left">返回执行的上一个 T-SQL 语句的错误号</td>
+</tr>
+</tbody>
+</table>
+<h3 id="局部变量">局部变量</h3>
+<ul>
+<li>局部变量以<code>@</code>为前缀,可自定义</li>
+</ul>
+<h4 id="定义">定义</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">declare</span> <span class="o">&lt;@</span><span class="err">变量名</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="err">数据类型</span><span class="o">&gt;</span> <span class="p">[,...]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="赋值">赋值</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">set</span> <span class="o">@</span><span class="err">变量名</span><span class="o">=</span><span class="err">值</span> <span class="err">或</span> <span class="k">select</span> <span class="o">@</span><span class="err">变量名</span><span class="o">=</span><span class="err">值</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="打印">打印</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">@</span><span class="err">变量名</span> <span class="err">或</span> <span class="n">print</span> <span class="o">@</span><span class="err">变量名</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="类型转换">类型转换</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 返回转换后的数据
+</span><span class="c1"></span><span class="k">cast</span><span class="p">(</span><span class="o">@</span><span class="err">变量名</span> <span class="k">as</span> <span class="err">转换的类型</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="列子">列子</h4>
+<ul>
+<li>注意，这些语句在执行时，要全部选中，一起执行。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">declare</span> <span class="o">@</span><span class="n">wname</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="o">@</span><span class="n">wid</span> <span class="nb">char</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">set</span> <span class="o">@</span><span class="n">wid</span><span class="o">=</span><span class="s1">&#39;005&#39;</span>
+<span class="k">select</span> <span class="o">@</span><span class="n">wname</span><span class="o">=</span><span class="p">(</span><span class="k">select</span> <span class="n">wname</span> <span class="k">from</span> <span class="n">worker</span> <span class="k">where</span> <span class="n">wid</span><span class="o">=@</span><span class="n">wid</span><span class="p">)</span>
+<span class="k">select</span> <span class="o">@</span><span class="n">wname</span> <span class="k">as</span> <span class="err">职工姓名</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="流程控制">流程控制</h2>
+<h3 id="条件">条件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 判断查询子句是否有记录，有回True，无回False
+</span><span class="c1"></span><span class="k">exists</span><span class="p">(</span><span class="k">select</span> <span class="err">语句</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="条件判断">条件判断</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">if</span> <span class="o">&lt;</span><span class="err">条件</span><span class="o">&gt;</span>
+    <span class="k">begin</span>
+      <span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>
+    <span class="k">end</span>
+<span class="p">[</span> <span class="k">else</span>
+      <span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span> <span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="循环">循环</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">while</span> <span class="o">&lt;</span><span class="err">条件</span><span class="o">&gt;</span>
+    <span class="k">begin</span>
+      <span class="o">&lt;</span><span class="err">语句</span><span class="o">&gt;</span>
+    <span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>本文于 2020-04-29 更新</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://kisssum.github.io/sql_mssql/" data-title="Mssql笔记" data-hashtags="sql"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://kisssum.github.io/sql_mssql/" data-hashtag="sql"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://kisssum.github.io/sql_mssql/" data-title="Mssql笔记" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://kisssum.github.io/sql_mssql/" data-title="Mssql笔记"><i class="fab fa-line fa-fw"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://kisssum.github.io/sql_mssql/" data-title="Mssql笔记" data-image="https://note.youdao.com/yws/api/personal/file/WEB03b91eaae887cd42cba1bc5f05682843?method=download&amp;shareKey=a1cc0f200d5dc20dbd506443cb3c75a7" data-ralateuid="xxxx"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://kisssum.github.io/sql_mssql/" data-title="Mssql笔记" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://kisssum.github.io/sql_mssql/" data-title="Mssql笔记" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://kisssum.github.io/sql_mssql/" data-title="Mssql笔记"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/sql/">sql</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/js_bj/" class="prev" rel="prev" title="Javascript笔记"><i class="fas fa-angle-left fa-fw"></i>Javascript笔记</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2020</span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript">
+    window.config = {"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"headerMode":{"desktop":"fixed","mobile":"auto"},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.zh-cn","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","noResultsFound":"没有找到结果","type":"algolia"}};
+</script><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=Element.prototype.closest%2CrequestAnimationFrame%2CCustomEvent%2CPromise%2CObject.entries%2CObject.assign%2CObject.values%2Cfetch%2CElement.prototype.after%2CArray.prototype.fill%2CIntersectionObserver%2CArray.from%2CArray.prototype.find%2CMath.sign"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.100efdceabf7a138f3297e437d078f74.js" integrity="md5-EA79zqv3oTjzKX5DfQePdA=="></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.ae7c5011def46b283696baf367586b5d.js" integrity="md5-rnxQEd70ayg2lrrzZ1hrXQ=="></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.f4b3bfb8ca3e7483fb4fd3541527e1bd.js" integrity="md5-9LO/uMo&#43;dIP7T9NUFSfhvQ=="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.0812d0f17b90a4aefd97bb91085ad252.js" integrity="md5-CBLQ8XuQpK79l7uRCFrSUg=="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.af8ab36589315582ccdd82f22e84bffb.js" integrity="md5-r4qzZYkxVYLM3YLyLoS/&#43;w=="></script><script type="text/javascript" src="/lib/sharer/sharer.min.c3c3372b4cf5c56dd4e5a4be8ada86c9.js" integrity="md5-w8M3K0z1xW3U5aS&#43;itqGyQ=="></script><script type="text/javascript" src="/js/theme.min.51bacba29b2063351eed3f225a354ed6.js" integrity="md5-UbrLopsgYzUe7T8iWjVO1g=="></script></body>
+</html>
