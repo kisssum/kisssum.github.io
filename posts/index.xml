@@ -3,7 +3,15 @@
         <title>所有文章 | Kisssum&#39; Blog</title>
         <link>https://kisssum.github.io/posts/</link>
         <description>所有文章 | Kisssum&#39; Blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 30 Mar 2020 16:07:44 &#43;0800</lastBuildDate><atom:link href="https://kisssum.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 08 May 2020 11:10:09 &#43;0800</lastBuildDate><atom:link href="https://kisssum.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+                <title>正则表达式笔记</title>
+                <link>https://kisssum.github.io/linux_regex/</link>
+                <pubDate>Fri, 08 May 2020 11:10:09 &#43;0800</pubDate>
+                <author>Kisssum</author>
+                <guid>https://kisssum.github.io/linux_regex/</guid>
+                <description>正则表达式
+</description>
+            </item><item>
                 <title>Mssql笔记</title>
                 <link>https://kisssum.github.io/sql_mssql/</link>
                 <pubDate>Mon, 30 Mar 2020 16:07:44 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
                 <author>Kisssum</author>
                 <guid>https://kisssum.github.io/linux_wps_input/</guid>
                 <description>WPS for Linux 用不了输入法(已解决)
-</description>
-            </item><item>
-                <title>ArchLinux配置源</title>
-                <link>https://kisssum.github.io/linux_arch_source/</link>
-                <pubDate>Thu, 06 Feb 2020 20:11:42 &#43;0800</pubDate>
-                <author>Kisssum</author>
-                <guid>https://kisssum.github.io/linux_arch_source/</guid>
-                <description>ArchLinux配置源
 </description>
             </item></channel>
 </rss>
