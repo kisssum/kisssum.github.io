@@ -32,7 +32,7 @@
                 "url": "https:\/\/kisssum.github.io\/cover.png",
                 "width":  800 ,
                 "height":  600 
-            },"genre": "posts","keywords": "sql","wordcount":  1772 ,
+            },"genre": "posts","keywords": "sql","wordcount":  1852 ,
         "url": "https:\/\/kisssum.github.io\/sql_mssql\/","datePublished": "2020-03-30T16:07:44+08:00","dateModified": "2020-04-29T19:38:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
                 "@type": "Organization",
                 "name": "xxxx",
@@ -120,7 +120,7 @@
                                 <i class="far fa-folder fa-fw"></i>Sql
                             </a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2020-03-30>2020-03-30</time>&nbsp;
-                <i class="fas fa-pencil-alt fa-fw"></i>约 1772 字&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>约 1852 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>预计阅读 4 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -413,6 +413,12 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 创建数据库
@@ -433,6 +439,12 @@
 <span class="k">go</span>
 <span class="c1">-- 调用
 </span><span class="c1"></span><span class="k">exec</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="err">参数</span><span class="o">&gt;</span> <span class="p">[</span> <span class="k">output</span> <span class="p">]</span>
+
+<span class="c1">-- 创建索引
+</span><span class="c1">-- unique:唯一的
+</span><span class="c1">-- clustered:聚集的
+</span><span class="c1"></span><span class="k">create</span> <span class="p">[</span> <span class="k">unique</span> <span class="p">]</span> <span class="p">[</span> <span class="n">clustered</span> <span class="p">]</span> <span class="k">index</span> <span class="o">&lt;</span><span class="n">index_name</span><span class="o">&gt;</span>
+<span class="k">on</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="p">(</span><span class="err">字段名</span> <span class="p">[</span> <span class="k">asc</span><span class="o">|</span><span class="k">desc</span> <span class="p">])</span><span class="o">&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="drop移除">Drop移除</h2>
@@ -449,6 +461,9 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 移除数据库
@@ -462,6 +477,9 @@
 
 <span class="c1">-- 移除存储过程
 </span><span class="c1"></span><span class="k">drop</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span>
+
+<span class="c1">-- 移除索引
+</span><span class="c1"></span><span class="k">drop</span> <span class="k">index</span> <span class="o">&lt;</span><span class="n">index_name</span><span class="o">&gt;</span> <span class="k">on</span> <span class="o">&lt;</span><span class="k">table_name</span><span class="o">&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="注释">注释</h2>

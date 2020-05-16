@@ -4,6 +4,14 @@
         <link>https://kisssum.github.io/</link>
         <description>Kisssum&#39; Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 Feb 2020 11:04:49 &#43;0800</lastBuildDate><atom:link href="https://kisssum.github.io/" rel="self" type="application/rss+xml" /><item>
+                <title>Docker笔记</title>
+                <link>https://kisssum.github.io/docker_bj/</link>
+                <pubDate>Sun, 10 May 2020 15:35:38 &#43;0800</pubDate>
+                <author>Kisssum</author>
+                <guid>https://kisssum.github.io/docker_bj/</guid>
+                <description>Docker笔记
+</description>
+            </item><item>
                 <title>正则表达式笔记</title>
                 <link>https://kisssum.github.io/linux_regex/</link>
                 <pubDate>Fri, 08 May 2020 11:10:09 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
                 <author>Kisssum</author>
                 <guid>https://kisssum.github.io/linux_ps_vbox/</guid>
                 <description>Virtualbox中Photoshop图片不显示(已解决)
-</description>
-            </item><item>
-                <title>WPS for Linux 用不了中文输入法</title>
-                <link>https://kisssum.github.io/linux_wps_input/</link>
-                <pubDate>Thu, 06 Feb 2020 20:44:01 &#43;0800</pubDate>
-                <author>Kisssum</author>
-                <guid>https://kisssum.github.io/linux_wps_input/</guid>
-                <description>WPS for Linux 用不了输入法(已解决)
 </description>
             </item></channel>
 </rss>
