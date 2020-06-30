@@ -32,7 +32,7 @@
                 "url": "https:\/\/kisssum.github.io\/cover.png",
                 "width":  800 ,
                 "height":  600 
-            },"genre": "posts","keywords": "sql","wordcount":  2541 ,
+            },"genre": "posts","keywords": "sql","wordcount":  2538 ,
         "url": "https:\/\/kisssum.github.io\/sql_mssql\/","datePublished": "2020-03-30T16:07:44+08:00","dateModified": "2020-06-26T17:12:08+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
                 "@type": "Organization",
                 "name": "xxxx",
@@ -120,7 +120,7 @@
                                 <i class="far fa-folder fa-fw"></i>Sql
                             </a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2020-03-30>2020-03-30</time>&nbsp;
-                <i class="fas fa-pencil-alt fa-fw"></i>约 2541 字&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>约 2538 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>预计阅读 6 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -165,25 +165,6 @@
         <li><a href="#函数">函数</a></li>
       </ul>
     </li>
-    <li><a href="#存储过程">存储过程</a>
-      <ul>
-        <li><a href="#创建存储过程">创建存储过程</a></li>
-        <li><a href="#调用">调用</a></li>
-        <li><a href="#移除存储过程">移除存储过程</a></li>
-      </ul>
-    </li>
-    <li><a href="#触发器">触发器</a>
-      <ul>
-        <li><a href="#创建">创建</a></li>
-      </ul>
-    </li>
-    <li><a href="#公用表">公用表</a></li>
-    <li><a href="#视图">视图</a>
-      <ul>
-        <li><a href="#创建视图">创建视图</a></li>
-        <li><a href="#移除视图">移除视图</a></li>
-      </ul>
-    </li>
     <li><a href="#注释">注释</a></li>
     <li><a href="#变量">变量</a>
       <ul>
@@ -199,10 +180,30 @@
         </li>
       </ul>
     </li>
+    <li><a href="#存储过程">存储过程</a>
+      <ul>
+        <li><a href="#创建">创建</a></li>
+        <li><a href="#调用">调用</a></li>
+        <li><a href="#移除">移除</a></li>
+      </ul>
+    </li>
+    <li><a href="#触发器">触发器</a>
+      <ul>
+        <li><a href="#创建-1">创建</a></li>
+        <li><a href="#移除-1">移除</a></li>
+      </ul>
+    </li>
+    <li><a href="#公用表">公用表</a></li>
+    <li><a href="#视图">视图</a>
+      <ul>
+        <li><a href="#创建-2">创建</a></li>
+        <li><a href="#移除-2">移除</a></li>
+      </ul>
+    </li>
     <li><a href="#流程控制">流程控制</a>
       <ul>
+        <li><a href="#函数-1">函数</a></li>
         <li><a href="#条件">条件</a></li>
-        <li><a href="#条件判断">条件判断</a></li>
         <li><a href="#循环">循环</a></li>
       </ul>
     </li>
@@ -470,98 +471,6 @@
 <span class="k">check</span><span class="p">(</span><span class="err">字段名</span> <span class="k">in</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="err">限定</span><span class="p">(</span><span class="err">常用于创建表时设置的字段限定值</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="存储过程">存储过程</h2>
-<h3 id="创建存储过程">创建存储过程</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span>  <span class="p">[</span> <span class="o">@</span><span class="err">输入参数</span><span class="mi">1</span> <span class="err">数据类型</span><span class="p">,</span><span class="o">@</span><span class="err">输出参数</span><span class="mi">2</span> <span class="err">数据类型</span> <span class="p">[</span> <span class="k">output</span> <span class="p">],...</span> <span class="p">]</span>
-<span class="k">as</span>
-  <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li><code>output</code>:可将变量值作为返回值</li>
-</ul>
-<h3 id="调用">调用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">exec</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span> <span class="p">[</span><span class="err">输入参数</span><span class="p">,</span><span class="err">输出参数</span><span class="p">]</span> <span class="p">[</span> <span class="k">output</span> <span class="p">]</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="移除存储过程">移除存储过程</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="触发器">触发器</h2>
-<h3 id="创建">创建</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">trigger</span> <span class="o">&lt;</span><span class="err">触发器名</span><span class="o">&gt;</span> <span class="k">on</span> <span class="o">&lt;</span><span class="err">触发来源表</span><span class="o">&gt;</span>
-    <span class="k">for</span> <span class="k">insert</span> <span class="o">|</span> <span class="k">update</span> <span class="o">|</span> <span class="k">delete</span>
-    <span class="k">as</span>
-      <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="公用表">公用表</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">with</span> <span class="o">&lt;</span><span class="err">公用表名</span><span class="o">&gt;</span> <span class="p">[</span> <span class="p">(</span><span class="err">字段列表</span><span class="p">)</span> <span class="p">]</span> <span class="k">as</span> <span class="p">(</span>
-  <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
-<span class="p">)</span>
-<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span> <span class="err">公用表名</span> <span class="o">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="视图">视图</h2>
-<h3 id="创建视图">创建视图</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span><span class="p">[</span> <span class="p">(</span><span class="err">列名</span><span class="p">...)</span> <span class="p">]</span>
-<span class="k">as</span>
-  <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>如果用了排序就要用top才能创建</li>
-</ul>
-<h3 id="移除视图">移除视图</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span>
-</code></pre></td></tr></table>
-</div>
 </div><h2 id="注释">注释</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -674,8 +583,109 @@
 <span class="k">select</span> <span class="o">@</span><span class="n">wname</span> <span class="k">as</span> <span class="err">职工姓名</span>
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="存储过程">存储过程</h2>
+<h3 id="创建">创建</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">@</span><span class="err">输入参数</span> <span class="err">数据类型</span><span class="p">,</span><span class="o">@</span><span class="err">输出参数</span> <span class="err">数据类型</span> <span class="k">output</span><span class="p">,...]</span>
+  <span class="k">as</span>
+    <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>output</code>：可将输出参数的值返回</li>
+</ul>
+<h3 id="调用">调用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">exec</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span> <span class="p">[</span><span class="err">输入参数</span><span class="p">,</span><span class="err">输出参数</span> <span class="k">output</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="移除">移除</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="触发器">触发器</h2>
+<h3 id="创建-1">创建</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">trigger</span> <span class="o">&lt;</span><span class="err">触发器名</span><span class="o">&gt;</span> <span class="k">on</span> <span class="o">&lt;</span><span class="err">触发来源表</span><span class="o">&gt;</span>
+    <span class="k">for</span> <span class="k">insert</span><span class="o">|</span><span class="k">update</span><span class="o">|</span><span class="k">delete</span>
+    <span class="k">as</span>
+      <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="移除-1">移除</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span> <span class="k">trigger</span> <span class="o">&lt;</span><span class="err">触发器名</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="公用表">公用表</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">with</span> <span class="o">&lt;</span><span class="err">公用表名</span><span class="o">&gt;</span> <span class="p">[(</span><span class="err">字段列表</span><span class="p">)]</span> <span class="k">as</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
+<span class="p">)</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span><span class="err">公用表名</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="视图">视图</h2>
+<h3 id="创建-2">创建</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span> <span class="p">[(</span><span class="err">列名</span><span class="p">,...)]</span>
+<span class="k">as</span>
+  <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果<code>select</code>语句有排序,就要在显示字段前加<code>top</code></li>
+</ul>
+<h3 id="移除-2">移除</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">drop</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
 </div><h2 id="流程控制">流程控制</h2>
-<h3 id="条件">条件</h3>
+<h3 id="函数-1">函数</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -686,7 +696,7 @@
 </span><span class="c1"></span><span class="k">exists</span><span class="p">(</span><span class="k">select</span> <span class="err">语句</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="条件判断">条件判断</h3>
+</div><h3 id="条件">条件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -725,16 +735,14 @@
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="p">[</span> <span class="k">unique</span> <span class="p">]</span> <span class="p">[</span> <span class="n">clustered</span> <span class="p">]</span> <span class="k">index</span> <span class="o">&lt;</span><span class="err">索引名</span><span class="o">&gt;</span>
-<span class="k">on</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span><span class="p">(</span><span class="err">列名</span><span class="p">)[</span><span class="k">asc</span><span class="o">|</span><span class="k">desc</span><span class="p">][,...]</span>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="p">[</span><span class="k">unique</span><span class="p">]</span> <span class="p">[</span><span class="n">clustered</span><span class="p">]</span> <span class="k">index</span> <span class="o">&lt;</span><span class="err">索引名</span><span class="o">&gt;</span> <span class="k">on</span> <span class="o">&lt;</span><span class="err">表名</span><span class="o">&gt;</span> <span class="p">(</span><span class="err">列</span><span class="mi">1</span> <span class="p">[</span><span class="err">排序</span><span class="p">][,...])</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
-<li><code>unique</code>:唯一的</li>
-<li><code>clustered</code>:聚集的</li>
+<li><code>unique</code>：唯一的</li>
+<li><code>clustered</code>：聚集的</li>
 </ul>
 <h3 id="删除索引">删除索引</h3>
 <div class="highlight"><div class="chroma">
