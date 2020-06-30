@@ -593,8 +593,8 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="n">proc</span> <span class="o">&lt;</span><span class="err">存储过程名</span><span class="o">&gt;</span> <span class="p">[</span><span class="o">@</span><span class="err">输入参数</span> <span class="err">数据类型</span><span class="p">,</span><span class="o">@</span><span class="err">输出参数</span> <span class="err">数据类型</span> <span class="k">output</span><span class="p">,...]</span>
-  <span class="k">as</span>
-    <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
+<span class="k">as</span>
+  <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -652,7 +652,7 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">with</span> <span class="o">&lt;</span><span class="err">公用表名</span><span class="o">&gt;</span> <span class="p">[(</span><span class="err">字段列表</span><span class="p">)]</span> <span class="k">as</span> <span class="p">(</span>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">with</span> <span class="o">&lt;</span><span class="err">公用表名</span><span class="o">&gt;</span><span class="p">[(</span><span class="err">字段列表</span><span class="p">)]</span> <span class="k">as</span> <span class="p">(</span>
   <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
 <span class="p">)</span>
 <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="o">&lt;</span><span class="err">公用表名</span><span class="o">&gt;</span>
@@ -667,7 +667,7 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span> <span class="p">[(</span><span class="err">列名</span><span class="p">,...)]</span>
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">view</span> <span class="o">&lt;</span><span class="err">视图名</span><span class="o">&gt;</span><span class="p">[(</span><span class="err">列名</span><span class="p">,...)]</span>
 <span class="k">as</span>
   <span class="o">&lt;</span><span class="k">select</span> <span class="err">语句</span><span class="o">&gt;</span>
 </code></pre></td></tr></table>
